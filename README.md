@@ -90,21 +90,22 @@ image - 2D
 ![png](./imgs/Moving_average_in_2D_img1.png)
 
 ### Correlation Filtering
-save the averaging window size is $(2k + 1)\times(2k + 1)$.
-$G[i, j] = \frac{1}{(2k+1)^2}\sum_{u = -k}^{k}\sum_{v = -k}^{k}F[i+u,j+v]$
+save the averaging window size is <a href="https://www.codecogs.com/eqnedit.php?latex=(2k&space;&plus;&space;1)\times(2k&space;&plus;&space;1)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?(2k&space;&plus;&space;1)\times(2k&space;&plus;&space;1)" title="(2k + 1)\times(2k + 1)" /></a>.
 
-$\frac{1}{(2k+1)^2}$-->Uniform weight for each pixel.
+<a href="https://www.codecogs.com/eqnedit.php?latex=G[i,&space;j]&space;=&space;\frac{1}{(2k&plus;1)^2}\sum_{u&space;=&space;-k}^{k}\sum_{v&space;=&space;-k}^{k}F[i&plus;u,j&plus;v]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?G[i,&space;j]&space;=&space;\frac{1}{(2k&plus;1)^2}\sum_{u&space;=&space;-k}^{k}\sum_{v&space;=&space;-k}^{k}F[i&plus;u,j&plus;v]" title="G[i, j] = \frac{1}{(2k+1)^2}\sum_{u = -k}^{k}\sum_{v = -k}^{k}F[i+u,j+v]" /></a>
 
-$\sum_{u = -k}^{k}\sum_{v = -k}^{k}F[i+u,j+v]$-->loop over all pixels in neighborhood around image pixel $F[i,j]$.
+<a href="https://www.codecogs.com/eqnedit.php?latex=\frac{1}{(2k&plus;1)^2}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\frac{1}{(2k&plus;1)^2}" title="\frac{1}{(2k+1)^2}" /></a>-->Uniform weight for each pixel.
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=\sum_{u&space;=&space;-k}^{k}\sum_{v&space;=&space;-k}^{k}F[i&plus;u,j&plus;v]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sum_{u&space;=&space;-k}^{k}\sum_{v&space;=&space;-k}^{k}F[i&plus;u,j&plus;v]" title="\sum_{u = -k}^{k}\sum_{v = -k}^{k}F[i+u,j+v]" /></a>-->loop over all pixels in neighborhood around image pixel F[i,j].
 
 **Correlation filtering - non-uniform weights**
 
 Now generalize to allow different weights depending on neighboring pixel's relative position:
-$G[i,j] = \sum_{u=-k}^{k}\sum_{v = -k}^{k}H[u,v]F[i+u,j+v]$
-This is called **cross-correlation**, denoted $G = H\otimes F$.
+<a href="https://www.codecogs.com/eqnedit.php?latex=G[i,j]&space;=&space;\sum_{u=-k}^{k}\sum_{v&space;=&space;-k}^{k}H[u,v]F[i&plus;u,j&plus;v]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?G[i,j]&space;=&space;\sum_{u=-k}^{k}\sum_{v&space;=&space;-k}^{k}H[u,v]F[i&plus;u,j&plus;v]" title="G[i,j] = \sum_{u=-k}^{k}\sum_{v = -k}^{k}H[u,v]F[i+u,j+v]" /></a>
+This is called **cross-correlation**, denoted <a href="https://www.codecogs.com/eqnedit.php?latex=G&space;=&space;H\otimes&space;F" target="_blank"><img src="https://latex.codecogs.com/gif.latex?G&space;=&space;H\otimes&space;F" title="G = H\otimes F" /></a>.
 
-$H[u,v]$--> None-uniform weights
-The filter "**kernel**" or "**mask**" $H[u,v]$ is the matrix of weights in the linear combination.
+H[u,v]--> None-uniform weights
+The filter "**kernel**" or "**mask**" H[u,v] is the matrix of weights in the linear combination.
 
 ### Averaging Filter
 
@@ -131,7 +132,8 @@ To blur a signle pixel into a "blurry" spot, we would need to need to filter the
 non-Gaussian filter you can see those shape edges.
 
 Gaussian filters are referred to as exponentials. The complete formular is:
-**$h(u, v) = \frac{1}{2\pi\sigma^2}exp(-\frac{x^2+y^2}{2\sigma^2})$**
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=h(u,&space;v)&space;=&space;\frac{1}{2\pi\sigma^2}exp(-\frac{x^2&plus;y^2}{2\sigma^2})" target="_blank"><img src="https://latex.codecogs.com/gif.latex?h(u,&space;v)&space;=&space;\frac{1}{2\pi\sigma^2}exp(-\frac{x^2&plus;y^2}{2\sigma^2})" title="h(u, v) = \frac{1}{2\pi\sigma^2}exp(-\frac{x^2+y^2}{2\sigma^2})" /></a>
 
 ### Variance or Standard Deviation
 The Gaussian we just talked about is what's referred to as isotropic(各向同性) and it basically had 1 parameter $\sigma$, the bigger the more blur.
